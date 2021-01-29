@@ -2,25 +2,24 @@
     <div>
         <ul v-for="post in posts" :key="post.id" >
             <li>
-                <h3>{{post.title}}</h3>
-                <p>{{post.text}}</p>
+                {{post.title}}<br/>
+                <router-link :to="{ name: `SinglePost`, params: {id: post.id}}" > View post </router-link>
             </li>
         </ul>
     </div>
 </template>
 
 <script>
-// import postsService from '../services/PostsService.js'
+import postsService from '../services/PostsService.js'
 
 export default {
     data() {
         return {
-            posts: {
-                id: 1,
-                title: 'Title 1',
-                text: 'Lorem Ipsum 1'
-            }
+            posts: []
         }
+    },
+    async created(){
+        this.posts = await postsService.getAll();
     }
 }
 </script>

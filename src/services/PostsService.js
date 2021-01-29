@@ -10,6 +10,10 @@ class PostsService {
             console.log(error);
         }
     }
+    async getPostById(id) {
+        const response = await http.get(`posts/${id}`)
+        return response.data
+    }
 }
 
 const postsService = new PostsService();
