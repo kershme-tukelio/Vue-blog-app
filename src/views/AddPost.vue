@@ -5,6 +5,7 @@
             <input v-model="formData.title" name="title" type="text" id="title" > <br/><br/>
             <label for="text">Text: </label> <br/>
             <textarea name="text" v-model="formData.text" id="text" cols="30" rows="10"></textarea> <br/><br/>
+            <button type="reset">Reset form</button>
             <button type="submit"> Submit </button>
         </form>
     </div>
